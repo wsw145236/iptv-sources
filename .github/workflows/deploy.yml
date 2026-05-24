@@ -40,17 +40,6 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm build:static
-      - name: Compress EPG XML
-        run: |
-          # 检查文件是否存在，如果存在则进行最高级别压缩
-          if [ -f "public/epg/epg_pw.xml" ]; then
-            echo "🔄 Compressing epg_pw.xml..."
-            gzip -9 -k public/epg/epg_pw.xml
-            # 可选：如果你想删除原文件以节省空间，取消下一行的注释
-            # rm public/epg/epg_pw.xml
-          else
-            echo "⚠️ epg_pw.xml not found, skipping compression."
-          fi
 
       # - name: "Jekyll theme"
       #   run: mv ./_config.temp.yml ./m3u/_config.yml
