@@ -10,7 +10,7 @@
     "dev": "cross-env NODE_ENV=development tsup --watch",
     "build": "tsup",
     "build:static": "tsx src/index.ts",
-    "postbuild:static": "npm run static",
+    "postbuild:static": "npm run static && gzip -9 -k m3u/epg/epg_pw.xml",
     "m3u": "node ./dist/index.js",
     "postm3u": "npm run static",
     "static": "cp -r public/* m3u/",
